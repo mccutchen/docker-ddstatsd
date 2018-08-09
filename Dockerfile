@@ -5,4 +5,4 @@ RUN go get github.com/mreiferson/ddstatsd
 FROM gcr.io/distroless/base
 COPY --from=build /go/bin/ddstatsd /bin/ddstatsd
 EXPOSE 8126
-CMD ["/bin/ddstatsd"]
+ENTRYPOINT ["/bin/ddstatsd", "-config=/ddstatsd/rules.cfg"]
